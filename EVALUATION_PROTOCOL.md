@@ -38,6 +38,11 @@ feature work, synthetic regression testing, or a reproducible rule-based submiss
 prevent claims that a candidate improves real-match quality or beats the published full-match
 floor. A synthetic pass alone cannot rank candidates for the hidden match.
 
+The bounded review and engineering comparison were completed in T08; see
+[T08_EXPERIMENTS.md](T08_EXPERIMENTS.md) for the two source assessments, preregistration,
+failed infrastructure attempts, final results and unchanged-C0 decision. None was validated
+in that review; no other-match assets or labels were acquired.
+
 Before T08, permit one bounded acquisition investigation: inspect at most two publicly accessible
 other-match sources, spend at most one project work session, and record URL/version, access terms,
 redistribution permissions, organizer access, match identities, annotation origin/coverage, team

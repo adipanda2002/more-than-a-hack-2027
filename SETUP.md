@@ -57,6 +57,12 @@ masks used by the temporal decoder. Run `.venv/bin/python scripts/check_dead_bal
 for a sanitized local feature-consumer/invariant/determinism smoke. It creates no prediction
 outputs or quality scores.
 
+For the frozen T08 synthetic robustness and bounded resource checks, run
+`.venv/bin/python scripts/run_robustness.py`. It is asset-free by default. The explicit
+`.venv/bin/python scripts/run_robustness.py --full-match` option reuses a valid local report
+and resource cache before running the selected C0 format/repeatability gate. Results remain
+under ignored `data/` paths and do not score against possession labels.
+
 For full H/A/D/X inference, see [TEMPORAL.md](TEMPORAL.md). Run
 `.venv/bin/python scripts/generate_submission.py` to create the ignored local
 `data/predictions/t07.csv`, then `.venv/bin/python scripts/check_temporal.py` to verify

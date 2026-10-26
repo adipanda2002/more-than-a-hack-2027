@@ -129,6 +129,12 @@ evidence, finite ownership retention and full H/A/D/X output. Generate the ignor
 with `.venv/bin/python scripts/generate_submission.py`; verify deterministic regeneration and
 official format validation with `.venv/bin/python scripts/check_temporal.py`.
 
+[T08_EXPERIMENTS.md](T08_EXPERIMENTS.md) records the bounded benchmark review, frozen
+ablations, robustness results and known stoppage failures. Run asset-free checks with
+`.venv/bin/python scripts/run_robustness.py`; add `--full-match` for the selected model's
+sanitized repeatability/format gate. C0 remains the initial T07 model; these checks do not
+establish real-match accuracy.
+
 ---
 
 ## Read these, in this order
