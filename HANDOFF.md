@@ -4,6 +4,11 @@ Team **polyamal**, five members. This is the current reproducible submission can
 using unchanged C0. The code, pinned runtime and technical report belong in the public
 repository; match assets, generated labels and private verification manifests stay local.
 
+The candidate source/package checkpoint is **d90d138**, published to the fork's default
+`main` branch on 2026-10-26. Later handoff-only documentation commits do not change its
+algorithm, technical report or generated upload files. Record the exact revision used when
+submitting, particularly if teammates make further changes.
+
 ## Start here
 
 ```bash
