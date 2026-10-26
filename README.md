@@ -113,6 +113,11 @@ Our shared progress tracker is **[PLAN.md](PLAN.md)**. Review it at the start of
 and update it after every attempt. **[AGENTS.md](AGENTS.md)** defines the working agreements,
 ChatGPT Plus model routing, and data-handling boundaries for this fork.
 
+[EVALUATION_PROTOCOL.md](EVALUATION_PROTOCOL.md) defines this team's permitted evidence,
+bounded experiments, and synthetic behavioral contracts. Run the asset-free tests with
+`.venv/bin/python -m unittest discover -s tests -v`. Synthetic passes establish intended behavior,
+not real-match ranking; the public five minutes remain correctness smoke only.
+
 ---
 
 ## Read these, in this order

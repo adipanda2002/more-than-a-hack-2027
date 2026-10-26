@@ -30,3 +30,20 @@ scorer, and checks their published public-window scores. Child output is capture
 prints only pass/fail summaries. Temporary submissions and reports are removed on exit. The public
 five minutes are used only for this pipeline check; do not use these scores to select or tune a
 method. The official validator and scorer remain unchanged.
+
+## Asset-free behavioral checks
+
+The team [evaluation protocol](EVALUATION_PROTOCOL.md) freezes the public window's smoke-test
+role and defines independent synthetic cases for future possession models. These checks need no
+match files or public ground truth:
+
+```bash
+.venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python -m evaluation.behavioral_harness --check-contracts
+```
+
+The second command checks fixture structure; no candidate model is evaluated. To run a future
+model adapter on those cases, follow the `--predictor module:function` contract in the protocol.
+No candidate model has yet passed the behavioral suite, and synthetic correctness does not
+establish real-match accuracy. Restricted model outputs and caches belong under ignored `data/`
+paths; avoid printing asset records or extracts.
