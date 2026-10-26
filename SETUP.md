@@ -51,3 +51,8 @@ paths; avoid printing asset records or extracts.
 For aligned tracking, motion, geometry, and Smart Tagging features, see [FEATURES.md](FEATURES.md)
 and run `.venv/bin/python scripts/build_features.py`. The command reports only a sanitized
 build/cache status; arrays stay in the ignored local feature cache.
+
+The [dead-ball evidence component](DEAD_BALL.md) provides alive/dead/unknown state and reason
+masks for later team-possession integration. Run `.venv/bin/python scripts/check_dead_ball.py`
+for a sanitized local feature-consumer/invariant/determinism smoke. It creates no prediction
+outputs or quality scores; full H/A/D possession inference remains T07.

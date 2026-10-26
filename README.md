@@ -122,6 +122,10 @@ The aligned tactical feature schema, cache behavior, units, and Smart Tagging ev
 [FEATURES.md](FEATURES.md). Build the private ignored cache with
 `.venv/bin/python scripts/build_features.py`.
 
+The [T06 dead-ball evidence component](DEAD_BALL.md) provides three-way alive/dead/unknown
+inference with expiring same-half retention and explicit reasons. Its synthetic checks cover
+only alive/dead behavior; team-possession inference (T07) is still pending.
+
 ---
 
 ## Read these, in this order
