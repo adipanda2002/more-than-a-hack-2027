@@ -37,6 +37,7 @@ Private checksums and source identifiers are recorded in the local manifest and
 `data/predictions/release/polyamal.verification.json`; neither belongs in Git. This check
 establishes reproduction on the tested platform, not performance on unseen match labels.
 
-The source and technical document can be reviewed in this checkout before publishing.
-The emailed form and exact cutoff are pending. Push/publication and the eventual form
-submission require the user's instruction; they have not been performed.
+The user authorized fork publication for teammate sharing on 2026-10-26. The source and
+technical document are the submission candidate described in [HANDOFF.md](HANDOFF.md);
+publication state is recorded in PLAN.md. Generated private files stay local. The emailed
+form and exact cutoff are pending, and no form submission has been performed.
