@@ -167,6 +167,9 @@ The notebooks additionally want `kloppy` and `matplotlib` (`requirements-starter
 **Python 3.9+ is recommended for those**: on Windows, installing Jupyter under 3.8 hits a
 `pywinpty` build failure that has nothing to do with this repository.
 
+For the pinned team environment and the local data/reference verification command, see
+[SETUP.md](SETUP.md).
+
 ---
 
 ## Timeline
