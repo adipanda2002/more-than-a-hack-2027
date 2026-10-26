@@ -118,6 +118,10 @@ bounded experiments, and synthetic behavioral contracts. Run the asset-free test
 `.venv/bin/python -m unittest discover -s tests -v`. Synthetic passes establish intended behavior,
 not real-match ranking; the public five minutes remain correctness smoke only.
 
+The aligned tactical feature schema, cache behavior, units, and Smart Tagging evidence are in
+[FEATURES.md](FEATURES.md). Build the private ignored cache with
+`.venv/bin/python scripts/build_features.py`.
+
 ---
 
 ## Read these, in this order

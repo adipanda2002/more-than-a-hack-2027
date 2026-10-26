@@ -47,3 +47,7 @@ model adapter on those cases, follow the `--predictor module:function` contract 
 No candidate model has yet passed the behavioral suite, and synthetic correctness does not
 establish real-match accuracy. Restricted model outputs and caches belong under ignored `data/`
 paths; avoid printing asset records or extracts.
+
+For aligned tracking, motion, geometry, and Smart Tagging features, see [FEATURES.md](FEATURES.md)
+and run `.venv/bin/python scripts/build_features.py`. The command reports only a sanitized
+build/cache status; arrays stay in the ignored local feature cache.
