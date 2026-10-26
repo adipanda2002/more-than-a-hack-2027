@@ -68,3 +68,7 @@ For full H/A/D/X inference, see [TEMPORAL.md](TEMPORAL.md). Run
 `data/predictions/t07.csv`, then `.venv/bin/python scripts/check_temporal.py` to verify
 independent decodes, identical CSV bytes and unchanged official format validation.
 Both commands suppress private diagnostics and do not evaluate quality against public labels.
+
+For the team-named release package, see [RELEASE.md](RELEASE.md). The final command rebuilds
+features without cache and writes the team CSV, technical report copy, and private local manifest
+under ignored `data/predictions/release/`.

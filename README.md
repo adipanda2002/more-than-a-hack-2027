@@ -192,6 +192,8 @@ The notebooks additionally want `kloppy` and `matplotlib` (`requirements-starter
 For the pinned team environment and the local data/reference verification command, see
 [SETUP.md](SETUP.md).
 
+The team-named release command and technical report are documented in [RELEASE.md](RELEASE.md).
+
 ---
 
 ## Timeline
