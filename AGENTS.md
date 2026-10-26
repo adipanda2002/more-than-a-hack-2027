@@ -3,16 +3,16 @@
 ## Start and finish every task
 
 - Read [PLAN.md](PLAN.md) at the start of every project task, including when resuming a chat. Check the current task, dependencies, open issues, decisions, and latest attempt before acting.
-- Select an existing task ID, or add one for new work. Mark it `IN_PROGRESS` before implementation and name the intended outcome briefly to the user.
-- After every attempt, update the task status and append a dated attempt-log row with what changed, checks and outcomes, unresolved issues, and the next action. Record failed or interrupted attempts too; never mark unverified work `DONE`.
+- The coordinator selects an existing task ID (or adds one), marks it `IN_PROGRESS` before implementation, and briefly names the outcome and worker model to the user. Delegated workers read this file and PLAN.md, but leave shared plan/status updates to the coordinator.
+- After every attempt, the coordinator updates status and appends a dated attempt-log row with changes, checks/outcomes, unresolved issues, and next action. Workers return that evidence to the coordinator. Record failed or interrupted attempts too; never mark unverified work `DONE`.
 - Update the plan's current/next task and review date before the final response. Keep the log concise and public-safe. Both the user and agent may edit the plan; preserve their changes.
 - The plan records project state; organizer documentation remains authoritative for competition rules. Read the relevant rule/specification before changing behavior.
 
 ## Model routing for ChatGPT Plus ($20/month)
 
-Use Standard speed. Default to GPT-6 Luna; reserve GPT-6.1 Sol for work requiring deeper reasoning. These are recommended settings, not automatic model switches or guarantees of account availability.
+Use Standard speed. Default workers to GPT-6 Luna; reserve GPT-6.1 Sol workers for deeper reasoning. Model availability is subject to the account/client. The table below routes worker requests, not changes to the coordinator's active model.
 
-GPT-6.1 Sol Light is suitable for coordination, questions, and scoped edits if the user prefers it. The same selected model also performs tool-driven work in this chat; there is no separate, automatically routed execution model. Recommend a picker change before substantive work when it would help quality or budget, without interrupting every minor subtask.
+The user wants to keep the main chat on GPT-6.1 Sol Light and have task models routed automatically (2026-10-26). Use model-routed subagents for substantive project tasks according to this table. The coordinator stays on the user's selected model, reviews worker results, updates the plan, and makes logical commits. The main model does not silently switch; a worker is a separate model invocation. No per-task delegation confirmation is needed within this project scope.
 
 | Task | Recommended model | Reasoning |
 |---|---|---|
@@ -27,15 +27,17 @@ GPT-6.1 Sol Light is suitable for coordination, questions, and scoped edits if t
 | T10 packaging and technical-document drafting | `gpt-6-luna` | Low |
 | T10 one focused final correctness/reproducibility review | `gpt-6.1-sol` | Medium |
 
-- Use the current model for a small task already in progress rather than launching another agent just to match this table. Never claim a model was switched when it was not.
-- If a different model is appropriate, tell the user the recommended model/effort for the next task; they select it in the model picker. Record the actual model only when exposed, otherwise write `not exposed`.
-- If a recommended model is unavailable, use an available lightweight equivalent or the current model and disclose the substitution. Do not silently escalate to Astra.
-- Avoid Fast, Max/Ultra effort, repeated broad reviews, and speculative experiments. Use one agent unless the user explicitly requests delegation; this file does not authorize it.
+- Keep conversation, plan edits, Git operations, and tiny changes in the coordinator when delegation would add overhead. Never claim the main model was switched.
+- For substantive work, spawn one worker with the table's explicit `model` and reasoning effort. In this session, use a fresh context (`fork_turns="none"`) when overriding the model; pass a concise task, allowed paths, acceptance criteria, and instructions to read AGENTS.md/PLAN.md and respect data restrictions. Do not copy the entire chat or restricted assets into its prompt.
+- Permit at most one running worker. Workers must not spawn descendants, edit shared plan/status, commit, push, or publish. The coordinator owns integration and verifies relevant evidence without automatically rerunning expensive checks already demonstrated.
+- Reuse a worker only for the same task/model; use a fresh worker when the required model changes. Return concise findings and file references, never restricted data/extracts. Record requested worker settings; record the actual effective model only when exposed, otherwise `not exposed`.
+- If a requested model or delegation is unavailable, disclose that and continue on the current model for suitable scoped work. Do not silently escalate to Astra or repeatedly retry unavailable models. A new main chat should keep this project's instructions; no global configuration change is required by this policy.
+- Avoid Fast, Max/Ultra effort, parallel fan-out, repeated broad reviews, and speculative experiments. Delegation uses the same Plus allowance and adds coordinator/worker overhead; it is not guaranteed to reduce total usage.
 - After two unsuccessful attempts at the same issue, reassess the approach and summarize evidence before further retries. Prefer a bounded Sol diagnosis over repeating an expensive loop.
 - Do not buy credits, use billed APIs, rent compute, or change global model settings without explicit user authorization. Subscription limits vary; API prices do not describe included Plus usage. Do not promise a fixed number of tasks.
 - Read only relevant files, keep tool outputs small, cache expensive local computations, and rerun checks only when changes or unresolved concerns justify them.
 
-Routing basis, checked 2026-10-26: [OpenAI model guidance](https://learn.chatgpt.com/docs/model-selection), [available models](https://learn.chatgpt.com/docs/models), and [Plus usage/pricing](https://learn.chatgpt.com/docs/pricing?codex-pricing-plans=individual). Recheck if availability changes; do not browse these again for every routine task.
+Routing basis, checked 2026-10-26: [OpenAI subagent guidance](https://learn.chatgpt.com/docs/agent-configuration/subagents), [model guidance](https://learn.chatgpt.com/docs/model-selection), [available models](https://learn.chatgpt.com/docs/models), and [Plus usage/pricing](https://learn.chatgpt.com/docs/pricing?codex-pricing-plans=individual). Recheck if availability changes; do not browse these again for every routine task.
 
 ## Data and evaluation boundaries
 

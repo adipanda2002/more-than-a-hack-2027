@@ -4,8 +4,8 @@ Last reviewed: **2026-10-26 (Asia/Singapore)**. Maintained jointly by the user a
 
 ## Current position
 
-- **Current task:** none active; T00 (shared plan, model routing, and incremental commit policy) is complete.
-- **Next implementation task:** T03 — reproducible local environment and verification command. Recommended model: **GPT-6 Luna, Medium, Standard speed**.
+- **Current task:** none active; T00 sequential model-routed delegation is configured and its scoped worker review passed.
+- **Next implementation task:** T03 — reproducible local environment and verification command. Worker route: **GPT-6 Luna, Medium, Standard speed**; main chat can remain on Sol Light.
 - **Approach:** tactical-only, CPU-first; improve dead-ball detection and temporal possession structure before considering broadcast/video models.
 - **Submission deadline:** November 17, 2026. Exact cutoff time/timezone is not stated in the repository; confirm from organizer communications.
 - **Budget:** the user's $20/month ChatGPT Plus allowance; no purchased credits, paid APIs, or paid compute are authorized. Model routing lives in [AGENTS.md](AGENTS.md).
@@ -35,7 +35,7 @@ Planned commit order (split further when a task has multiple independently usefu
 
 Include relevant code, tests, documentation, and PLAN.md updates in the same logical checkpoint. Each final response reports the short commit hash and validation. Record a checkpoint by task/message in the committed plan; record its hash in a later update if useful rather than amending a commit to include its own hash. Do not label a failed or unverified attempt complete merely to make a checkpoint.
 
-GPT-6.1 Sol Light is acceptable for coordination and small tasks. The active chat model also executes its tool-driven work; AGENTS.md does not silently switch models or launch differently routed workers. Recommend Luna for routine implementation and Sol Medium for substantive design/diagnosis before those tasks, with the user selecting the picker setting.
+Keep the main chat on the user's selected GPT-6.1 Sol Light. Following the user's automatic-routing request on 2026-10-26, AGENTS.md now instructs the coordinator to delegate substantive tasks to explicitly selected worker models/efforts. Use at most one worker at a time; keep conversation and tiny changes in the coordinator. The coordinator reviews results, updates this plan, and commits. Workers receive concise fresh context and must not spawn other agents or commit. Both layers use the user's Plus allowance; delegation adds overhead and is not automatically cheaper. If delegation or a model is unavailable, disclose it and fall back to suitable work on the current model.
 
 ## Objective and fixed constraints
 
@@ -51,7 +51,7 @@ Public ground truth is for pipeline correctness, never training or model/hyperpa
 
 | ID | Task | Status | Dependencies | Completion evidence / acceptance criteria |
 |---|---|---|---|---|
-| T00 | Shared plan and agent/model instructions | DONE | None | PLAN.md and AGENTS.md linked and checked; required start/end workflow, budget routing, and incremental commit policy recorded; README links added. Checkpoint: `docs: establish incremental workflow and task plan (T00)`. |
+| T00 | Shared plan and agent/model instructions | DONE | None | Initial workflow checkpoint: `54edd78`. Sequential routing documented; read-only worker review requested Luna Low and returned PASS, including correct T03 route. Checkpoint: `docs: enable sequential model-routed workers (T00)`. Effective worker model not independently exposed. |
 | T01 | Connect the existing checkout to the team fork | DONE | None | `origin` is `adipanda2002/more-than-a-hack-2027`; `upstream` is `metrica-sports/more-than-a-hack-2027`; local main tracks origin/main. |
 | T02 | Verify supplied assets and reference pipeline | DONE | T01 | Nine expected assets present, nonempty, ignored and untracked; tactical alignment passes; all four regenerated baseline files identical to shipped files; public scorer matches documented results. Broadcast caveat tracked as I01. |
 | T03 | Reproducible local environment and verification command | READY | T02 | Choose/document Python version, create .venv, pin minimal dependencies, and add a rerunnable check that reports pass/fail without printing restricted contents. Reference generation, official validation, and public scoring work in that environment. |
@@ -63,7 +63,7 @@ Public ground truth is for pipeline correctness, never training or model/hyperpa
 | T09 | Optional broadcast investigation and integration | DEFERRED | T08, I01 | Activate only if the tactical approach has a clear evidence gap. Resolve timeline/count mismatch and validate synchronization before using broadcast features. Otherwise document why omitted. |
 | T10 | Reproducible final submission package | TODO | T08 | Team-named CSV passes the unchanged validator; clean setup regenerates exactly the same file; pinned dependencies and commands documented; short technical document complete; data/secret exclusions checked. Include T09 only if activated. |
 
-T04 and T05 may proceed independently after T03, but this is not authorization to spawn parallel agents. Map task scope to the model table in AGENTS.md; use Sol for design/ambiguous decisions and Luna for scoped implementation and runs.
+T04 and T05 may proceed independently after T03, but workers run sequentially to control usage. Route each substantive task through the model table in AGENTS.md: Sol for design/ambiguous decisions and Luna for scoped implementation and runs.
 
 ## Implementation checkpoints
 
@@ -97,7 +97,7 @@ T04 and T05 may proceed independently after T03, but this is not authorization t
 | I01 | OPEN — optional path | Broadcast video reports one fewer frame than its tracking. Its last reported frame decodes; the final tracking index does not. | Does not block tactical work. Investigate container/decode/export alignment before T09; do not silently pad or shift it. No full-video decode audit has been performed. |
 | I02 | OPEN — submission information | Team name/size, exact deadline timezone/hour, and emailed form URL are not recorded. | User can provide later; needed before T10 submission, not for local implementation. Teams need 3–5 members for later-stage eligibility. |
 | D01 | ADOPTED | Tactical-only and CPU-first initial approach. | Use supplied tracking, tagging, and geometry; postpone broadcast synchronization and custom video models until justified. |
-| D02 | ADOPTED | Budget-aware model routing, Standard speed, one agent by default. | Follow AGENTS.md. It guides model choice but does not switch the active model or reserve a Plus usage allocation. |
+| D02 | UPDATED 2026-10-26 | Sol Light coordinator with sequential model-routed workers, Standard speed. | Follow AGENTS.md; one worker maximum, no nested agents, coordinator owns review/plan/commits. Requests select worker model/effort explicitly; the main model stays selected by the user. Both use the same Plus allowance. |
 | D03 | ADOPTED | Public labels are a correctness example, not a tuning set. | Method decisions require the T04 protocol; preserve honest uncertainty about hidden-match performance. |
 | D04 | ADOPTED | Restricted data stays local and out of model context. | Scripts may read assets, but return public-safe validation summaries; no footage, raw rows, screenshots, or reconstructable derivatives in chat/Git. |
 | D05 | ADOPTED | Incremental, verified local commits are authorized. | Commit each coherent checkpoint with its plan update; report the hash. No push/publication or history rewrite is authorized by this decision. |
@@ -113,5 +113,6 @@ Use Singapore-local dates. Add one row per meaningful attempt, including partial
 | 2026-10-26 | T02 | DONE, with I01 | Expected files and Git exclusions checked. Tracking/homography structure and tactical frame alignment passed. Smart Tagging count/kickoff checks passed. Both videos opened and first frames decoded. Four regenerated baseline CSVs matched supplied files byte-for-byte; official public scores matched docs. Checks used temporary files, since removed. | T03; defer optional broadcast discrepancy. | Not exposed |
 | 2026-10-26 | T00 | DONE | Added PLAN.md and AGENTS.md, with README links, task acceptance criteria, issue/decision log, and Plus-conscious model routing. Local links, task/routing coverage, and new/changed content whitespace checked. An initial whole-file whitespace check flagged pre-existing README formatting; corrected the check's scope and preserved that formatting. No modeling work started. | T03 using GPT-6 Luna, Medium, Standard speed. | Not exposed |
 | 2026-10-26 | T00 | DONE | Added ongoing authorization for coherent verified local commits, commit order, explicit staging/check requirements, and model-picker clarification. Recorded qualification as an aim rather than a guarantee. Links, task/routing coverage, and changed-content whitespace pass. Checkpoint message: `docs: establish incremental workflow and task plan (T00)`; resulting hash reported in chat. | T03; use GPT-6 Luna Medium for budget efficiency, or the user's selected model for scoped work. | Not exposed |
+| 2026-10-26 | T00 | DONE | Updated AGENTS.md and PLAN.md to route substantive tasks through one sequential worker while the main chat retains its selected model. Delegated a read-only documentation check with explicit `gpt-6-luna` / `low` and fresh context; it returned PASS and the correct T03 route. Local links and changed-content whitespace checked. Coordinator retains integration, plan updates, and commits. Checkpoint: `docs: enable sequential model-routed workers (T00)`. | T03 via a `gpt-6-luna` / `medium` worker; main chat can remain Sol Light. | Coordinator not exposed; worker requested Luna Low, effective model not exposed |
 
 For future attempts, capture: **task ID; outcome; changed paths or local artifact locations; checks run/results; remaining issue; exact next action; actual model if known**. Keep historical entries accurate rather than rewriting failed attempts as successes.
