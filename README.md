@@ -107,6 +107,14 @@ Full description of every asset and how the frames line up: **[DATA.md](DATA.md)
 
 ---
 
+## Team workflow
+
+Our shared progress tracker is **[PLAN.md](PLAN.md)**. Review it at the start of each project task
+and update it after every attempt. **[AGENTS.md](AGENTS.md)** defines the working agreements,
+ChatGPT Plus model routing, and data-handling boundaries for this fork.
+
+---
+
 ## Read these, in this order
 
 | | |
