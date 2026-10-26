@@ -136,7 +136,8 @@ def _derive_geometry(a, membership, pitch, fps):
             dist[~present | ~ball_seen[:, None]] = np.nan
             rows = np.isfinite(dist).any(axis=1)
             nearest = np.full(n, np.nan)
-            nearest[rows] = np.nanmin(dist[rows], axis=1)
+            if rows.any():
+                nearest[rows] = np.nanmin(dist[rows], axis=1)
             a["team_nearest_ball_distance_m"][:, team] = nearest
             a["team_nearest_ball_support_count"][:, team] = (
                 np.isfinite(dist) & (dist <= nearest[:, None] + 1e-6)).sum(axis=1)

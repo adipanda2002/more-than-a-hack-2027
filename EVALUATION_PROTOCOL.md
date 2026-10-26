@@ -131,7 +131,8 @@ adapter can be evaluated later with:
 `your_module:predict` is an example import target, not an implemented candidate. The committed
 tests use constant stubs, independently written test timelines and deliberate wrong predictions
 (including D for missing ball, a one-frame false turnover and stale half state) to test the
-harness. **No candidate model has yet passed these behavioral tests.** `--check-contracts`
+harness. The initial [T07 decoder](TEMPORAL.md) passes all eight full behavioral contracts; this
+is synthetic behavior evidence, not measured real-match quality. `--check-contracts`
 validates fixture structure only. Keep that statement distinct from future model results.
 
 ## Prospective bounded experiments and decision gates

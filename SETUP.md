@@ -42,9 +42,9 @@ match files or public ground truth:
 .venv/bin/python -m evaluation.behavioral_harness --check-contracts
 ```
 
-The second command checks fixture structure; no candidate model is evaluated. To run a future
-model adapter on those cases, follow the `--predictor module:function` contract in the protocol.
-No candidate model has yet passed the behavioral suite, and synthetic correctness does not
+The second command checks fixture structure; no candidate model is evaluated. Run the initial
+T07 adapter with `--predictor possession.temporal:predict` in place of `--check-contracts`.
+It passes all eight full behavioral contracts; synthetic correctness does not
 establish real-match accuracy. Restricted model outputs and caches belong under ignored `data/`
 paths; avoid printing asset records or extracts.
 
@@ -53,6 +53,12 @@ and run `.venv/bin/python scripts/build_features.py`. The command reports only a
 build/cache status; arrays stay in the ignored local feature cache.
 
 The [dead-ball evidence component](DEAD_BALL.md) provides alive/dead/unknown state and reason
-masks for later team-possession integration. Run `.venv/bin/python scripts/check_dead_ball.py`
+masks used by the temporal decoder. Run `.venv/bin/python scripts/check_dead_ball.py`
 for a sanitized local feature-consumer/invariant/determinism smoke. It creates no prediction
-outputs or quality scores; full H/A/D possession inference remains T07.
+outputs or quality scores.
+
+For full H/A/D/X inference, see [TEMPORAL.md](TEMPORAL.md). Run
+`.venv/bin/python scripts/generate_submission.py` to create the ignored local
+`data/predictions/t07.csv`, then `.venv/bin/python scripts/check_temporal.py` to verify
+independent decodes, identical CSV bytes and unchanged official format validation.
+Both commands suppress private diagnostics and do not evaluate quality against public labels.

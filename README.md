@@ -124,7 +124,10 @@ The aligned tactical feature schema, cache behavior, units, and Smart Tagging ev
 
 The [T06 dead-ball evidence component](DEAD_BALL.md) provides three-way alive/dead/unknown
 inference with expiring same-half retention and explicit reasons. Its synthetic checks cover
-only alive/dead behavior; team-possession inference (T07) is still pending.
+only alive/dead behavior. The [T07 temporal decoder](TEMPORAL.md) adds sustained team-control
+evidence, finite ownership retention and full H/A/D/X output. Generate the ignored local CSV
+with `.venv/bin/python scripts/generate_submission.py`; verify deterministic regeneration and
+official format validation with `.venv/bin/python scripts/check_temporal.py`.
 
 ---
 

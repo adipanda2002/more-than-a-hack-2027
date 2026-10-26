@@ -65,5 +65,6 @@ mask/evidence invariants and exact equality, and prints only fixed pass/fail tex
 prediction/cache/report files. The feature builder retains its own ignored, fingerprinted NPZ
 cache. Do not print or publish production result arrays. Tests compare all eight unchanged T04
 cases only after projecting expected H/A to alive; this is **partial dead-ball behavior evidence,
-not a passing full H/A/D possession model**. T07 is not implemented. No real-match accuracy,
+not a passing full H/A/D possession model**. The separate [T07 decoder](TEMPORAL.md)
+now passes all eight full synthetic H/A/D/X contracts. No real-match accuracy,
 public-window candidate score, or hidden competition ranking has been measured.
